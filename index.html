@@ -34,7 +34,6 @@
       overflow-x: hidden;
     }
 
-    /* Background texture */
     body::before {
       content: '';
       position: fixed;
@@ -53,7 +52,6 @@
       max-width: 560px;
     }
 
-    /* Header */
     .header {
       text-align: center;
       margin-bottom: 3rem;
@@ -94,7 +92,6 @@
       font-weight: 400;
     }
 
-    /* Divider */
     .divider {
       display: flex;
       align-items: center;
@@ -114,7 +111,6 @@
       background: var(--orange);
     }
 
-    /* Cards */
     .cards {
       display: flex;
       flex-direction: column;
@@ -173,7 +169,7 @@
     }
 
     .card-icon {
-      margin-right:10px;
+      margin-right: 10px;
       width: 46px;
       height: 46px;
       border-radius: 12px;
@@ -182,14 +178,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
       flex-shrink: 0;
       transition: background 0.25s, border-color 0.25s;
+    }
+
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--orange);
+      fill: none;
+      transition: stroke 0.25s;
     }
 
     .card:hover .card-icon {
       background: color-mix(in srgb, var(--card-accent) 12%, white);
       border-color: color-mix(in srgb, var(--card-accent) 30%, transparent);
+    }
+
+    .card:hover .card-icon svg {
+      stroke: var(--card-accent);
     }
 
     .card-label {
@@ -225,9 +232,19 @@
     }
 
     .card-arrow {
-      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--muted);
       transition: color 0.2s, transform 0.2s;
+    }
+
+    .card-arrow svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      transition: stroke 0.2s;
     }
 
     .card:hover .card-arrow {
@@ -235,7 +252,6 @@
       transform: translate(2px, -2px);
     }
 
-    /* Footer */
     .footer {
       margin-top: 2.5rem;
       text-align: center;
@@ -263,12 +279,6 @@
       0%, 100% { box-shadow: 0 0 0 2px rgba(34,197,94,0.2); }
       50%       { box-shadow: 0 0 0 4px rgba(34,197,94,0.1); }
     }
-    .main-logo{
-      width:64px;
-      height:auto;
-      object-fit:contain;
-      display:block;
-    }
   </style>
 </head>
 <body>
@@ -276,11 +286,7 @@
 
     <div class="header">
       <div class="logo-wrap">
-        <img
-        src="logo.png"
-        alt="DIP Logo"
-        class="main-logo"
-      >
+        <img src="logo.png" alt="DIP Logo" class="main-logo">
       </div>
       <div class="company-name">Dip <span>Projects</span></div>
       <div class="tagline">Select your portal to continue</div>
@@ -290,9 +296,14 @@
     <div class="cards">
 
       <!-- Client -->
-      <a class="card" href="https://script.google.com/macros/s/AKfycbzj1gJhzE7jLH4Y80n4G7KuptmpF65n56k-XLp0CUEZssIyHfR4di71ZMC4kZweRxhi/exec" target="_blank">
+      <a class="card" href="https://script.google.com/macros/s/AKfycbyj63raziBXf13m-X_eAeuoashOd--AzvNecNFZAXhWO5YIl9Yw3mSwdDxYyLDGMe8a/exec" target="_blank">
         <div class="card-left">
-          <div class="card-icon">🏠</div>
+          <div class="card-icon">
+            <!-- House / Home icon -->
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1H15v-5h-6v5H4a1 1 0 0 1-1-1V10.5z"/>
+            </svg>
+          </div>
           <div>
             <div class="card-label">Portal</div>
             <div class="card-title">Client</div>
@@ -300,14 +311,33 @@
         </div>
         <div class="card-right">
           <div class="status-dot"></div>
-          <span class="card-arrow">↗</span>
+          <span class="card-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/>
+              <polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </span>
         </div>
       </a>
 
       <!-- Office -->
-      <a class="card" href="https://script.google.com/macros/s/AKfycbzy1Zhk4L04Y0LJM84VvPTI4tCn_IjBkMNYFwXB8JN-PZfueNjC731E-8Ohz0D109qz/exec" target="_blank">
+      <a class="card" href="https://script.google.com/macros/s/AKfycbxCIIYIFFng_m95MLK40RBbtC0XRHlDyLaTE1exgHRhwebLyd1v-fUaiB2g0kOrJfTl/exec" target="_blank">
         <div class="card-left">
-          <div class="card-icon">🏢</div>
+          <div class="card-icon">
+            <!-- Building / Office icon -->
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="1"/>
+              <path d="M3 9h18"/>
+              <path d="M9 3v18"/>
+              <rect x="13" y="13" width="3" height="4"/>
+              <rect x="5" y="5" width="2" height="2"/>
+              <rect x="5" y="11" width="2" height="2"/>
+              <rect x="11" y="5" width="2" height="2"/>
+              <rect x="11" y="11" width="2" height="2"/>
+              <rect x="17" y="5" width="2" height="2"/>
+              <rect x="17" y="11" width="2" height="2"/>
+            </svg>
+          </div>
           <div>
             <div class="card-label">Portal</div>
             <div class="card-title">Office</div>
@@ -315,14 +345,28 @@
         </div>
         <div class="card-right">
           <div class="status-dot"></div>
-          <span class="card-arrow">↗</span>
+          <span class="card-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/>
+              <polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </span>
         </div>
       </a>
 
       <!-- Site Engineer -->
       <a class="card" href="https://script.google.com/macros/s/AKfycbyj63raziBXf13m-X_eAeuoashOd--AzvNecNFZAXhWO5YIl9Yw3mSwdDxYyLDGMe8a/exec" target="_blank">
         <div class="card-left">
-          <div class="card-icon">⚙️</div>
+          <div class="card-icon">
+            <!-- Hard hat / Engineer icon -->
+            <svg viewBox="0 0 24 24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 17h20v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2z"/>
+              <path d="M12 3a8 8 0 0 1 8 8v2H4v-2a8 8 0 0 1 8-8z"/>
+              <line x1="12" y1="3" x2="12" y2="8"/>
+              <line x1="4.93" y1="6.93" x2="8" y2="10"/>
+              <line x1="19.07" y1="6.93" x2="16" y2="10"/>
+            </svg>
+          </div>
           <div>
             <div class="card-label">Portal</div>
             <div class="card-title">Site Engineer</div>
@@ -330,7 +374,12 @@
         </div>
         <div class="card-right">
           <div class="status-dot"></div>
-          <span class="card-arrow">↗</span>
+          <span class="card-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/>
+              <polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </span>
         </div>
       </a>
 
